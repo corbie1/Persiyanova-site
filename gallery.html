@@ -119,39 +119,34 @@
 
 
 
-<div class="b-request block">
+<form action="./mail.php" method="post">
+	<div class="b-request block">
 		<div class="b-request__inner block__inner">
 			<div class="b-request__title title">оставить заявку</div>
 			<div class="b-request__subtitle subtitle">Напишите, какая фотосъемка вам нужна. Я свяжусь с вами, чтобы обсудить все детали</div>
 			<div class="b-request__forms">
 				<div class="b-request__column">
-					<div class="b-request__text">Имя</div>
+					<div class="b-request__text" >Имя</div>
 					<input class="b-request__name form" type="text" name="name">
 					<div class="b-request__text">Телефон</div>
 					<input class="b-request__phone form" type="phone" name="phone">
 				</div>
 				<div class="b-request__form--mes">
 					<div class="b-request__text message__text">Сообщение</div>
-					<input class="b-request__message form" type="text" name="message">
+					<textarea class="b-request__message form" type="text" name="message"></textarea>
 				</div>
 			</div>
-			<label class="checkbox form__checkbox">
-                  <input class="checkbox__input required" type="checkbox" name="privacy">
-                  <div class="checkbox__toggle">
-                  </div>
-                  <div class="checkbox__text">
-                    Я даю согласие на <a class="checkbox__link" href=""> обработку персональных данных</a>
-                  </div>
-            </label>
+         <div class="checkbox">
+    		<input type="checkbox" id="checkbox_1">
+    		<label for="checkbox_1"> Я прочитал <a class="checkbox__link" href=""> Политику обработки персональных данных</a> и согласен с условиями </label>
+		</div>
             <button class="b-request__button button">
             	Отправить
             </button>
 		</div>
 	<div class="b-image"><img src="img/IMG_1198.png"></div>
-
-
-	
 	</div>
+</form>
 	<div class="b-footer block">
 		<div class="b-footer__inner block__inner">
 			<div class="b-footer__info">

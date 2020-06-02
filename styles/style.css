@@ -332,7 +332,7 @@ align-items: center;
 }
 
 .b-request__message{
-
+	height: 85px;
     margin-left: 52px;
 
 }
