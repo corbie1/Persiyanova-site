@@ -14,6 +14,18 @@ var lazyLoadInstance = new LazyLoad({
     elements_selector: ".lazy"
 });
 
+var grid = document.querySelector('.grid');
+    
+var msnry = new Masonry( grid, {
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    gutter: 20,
+    percentPosition: true
+ });
+
+
+
+
 window.onload = function () {
     let wrapImg = document.querySelectorAll('.grid-item');
     wrapImg.forEach(elem => {
@@ -21,16 +33,7 @@ window.onload = function () {
         elem.setAttribute('href', image);
     });
   };
-  var grid = document.querySelector('.grid');
-    
-  var msnry = new Masonry( grid, {
-      itemSelector: '.grid-item',
-      columnWidth: '.grid-sizer',
-      gutter: 20,
-      percentPosition: true
-   });
-
-
+ 
 
 
 
