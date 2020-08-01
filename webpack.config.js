@@ -3,6 +3,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var webpack = require('webpack');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -12,11 +14,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new HTMLWebpackPlugin({
+      new HTMLWebpackPlugin({
             filename: 'index.html',
             template: './index.html'
-        }),
-        new HTMLWebpackPlugin({
+      }),
+      new HTMLWebpackPlugin({
           filename: 'portfolio.html',
           template: './portfolio.html'
       }),
@@ -52,10 +54,23 @@ module.exports = {
           $: 'jquery',
           jQuery: 'jquery',
           'window.jQuery': 'jquery',
-
-       }),
-        new MiniCssExtractPlugin(),
-        new CleanWebpackPlugin()
+      }),
+      
+      new ImageminPlugin({
+        disable: process.env.NODE_ENV !== 'production', // Disable during development
+        pngquant: {
+          quality: '95-100'
+        }
+      }),
+      new CopyPlugin({
+        patterns: [
+        {
+          from: './img/gallery', 
+          to: './img/gallery'
+        }],
+      }),
+      new MiniCssExtractPlugin(),
+      new CleanWebpackPlugin()
     ],
     module: {
         rules: [
@@ -68,8 +83,13 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: 'file-loader',
                 options: {
-                    outputPath: 'img',
+                  name: '[path][name].[ext]',
+                  context: ''
                   },
+            },
+            {
+              test: /fancybox[\/\\]dist[\/\\]js[\/\\]jquery.fancybox.cjs.js/,
+              use: "imports-loader?jQuery=jquery,$=jquery,this=>window"
             },
             {
               test: /fancybox[\/\\]dist[\/\\]js[\/\\]jquery.fancybox.cjs.js/,

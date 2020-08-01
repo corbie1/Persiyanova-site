@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Forum&display=swap');
+
 @import './normalize.css';
 @import './animate.css';
 @import './magnific-popup.css';
 @import './slick.css';
+
 *{
 	outline: none;
 }
@@ -338,8 +340,7 @@ align-items: center;
     margin-left: 52px;
 
 }
-.b-request__name{
-}
+
 .b-request__forms{
 	position: relative;
 	display: flex;
@@ -886,8 +887,7 @@ font-size: 72px;
 
 
 
-.b-page-about{
-}
+
 .b-page-about__content{
 	display: flex;
 	align-items: space-between;
@@ -928,8 +928,7 @@ font-size: 72px;
 	color: #222323;
 }
 
-.b-page-contact{
-}
+
 
 .cont{
 	padding-bottom: 20px;
@@ -1351,8 +1350,7 @@ scroll-snap-align: center;
 .b-sign__title {
     font-size: 36px;
 }
-.b-sign__subtitle {
-}
+
 }
 
 
@@ -1440,8 +1438,7 @@ display: block;
 .b-sign__title {
     font-size: 24px;
 }
-.b-sign__subtitle {
-}
+
 .b-price__cards{
 	display: block;
 	padding-left: 100px;

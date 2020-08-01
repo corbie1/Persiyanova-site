@@ -2,12 +2,36 @@ import '../styles/style.css'
 import html from '../index.html'
 import WOW from './wow.min.js'
 import './jquery.magnific-popup.js'
-
 import './slick.min.js'
+import * as LazyLoad from './lazyload.min.js'
 
-var $ = require("jquery");
-var Masonry = require("masonry-layout")
+const jquery = require("jquery");
 const fancybox = require("@fancyapps/fancybox"); 
+const fancyboxCSS = require('@fancyapps/fancybox/dist/jquery.fancybox.css');
+var Masonry = require("masonry-layout");
+                  
+var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazy"
+});
+
+window.onload = function () {
+    let wrapImg = document.querySelectorAll('.grid-item');
+    wrapImg.forEach(elem => {
+        let image = (elem.querySelector('img').getAttribute('src'));
+        elem.setAttribute('href', image);
+    });
+  };
+  var grid = document.querySelector('.grid');
+    
+  var msnry = new Masonry( grid, {
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      gutter: 20,
+      percentPosition: true
+   });
+
+
+
 
 
 
@@ -124,18 +148,3 @@ $('.b-reviews__slick').slick({
   arrows: true,
 });
 
-
-
-var elem = document.querySelector('.grid');
-var msnry = new Masonry( elem, {
-  // set itemSelector so .grid-sizer is not used in layout
-  itemSelector: '.grid-item',
-  // use element for option
-  columnWidth: '.grid-sizer',
-   gutter: 20,
-  percentPosition: true
-});
-
-$('[data-fancybox="gallery"]').fancybox({
-	// Options will go here
-});
