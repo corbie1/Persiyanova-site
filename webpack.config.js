@@ -3,8 +3,9 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 var webpack = require('webpack');
-var ImageminPlugin = require('imagemin-webpack-plugin').default;
 const CopyPlugin = require('copy-webpack-plugin');
+const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
+
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -55,13 +56,6 @@ module.exports = {
           jQuery: 'jquery',
           'window.jQuery': 'jquery',
       }),
-      
-      new ImageminPlugin({
-        disable: process.env.NODE_ENV !== 'production', // Disable during development
-        pngquant: {
-          quality: '95-100'
-        }
-      }),
       new CopyPlugin({
         patterns: [
         {
@@ -69,6 +63,20 @@ module.exports = {
           to: './img/gallery'
         }],
       }),
+      // new ImageminWebpWebpackPlugin([
+      //   {
+      //     config: [{
+      //       test: /\.(jpe?g|png)/,
+      //       options: {
+      //         quality:  50
+      //       }
+      //     }],
+      //     overrideExtension: true,
+      //     detailedLogs: false,
+      //     silent: false,
+      //     strict: true,
+      //   },
+      // ]),
       new MiniCssExtractPlugin(),
       new CleanWebpackPlugin()
     ],
@@ -79,6 +87,7 @@ module.exports = {
               use: [MiniCssExtractPlugin.loader, 'css-loader'],
               
             },
+           
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: 'file-loader',
@@ -87,10 +96,7 @@ module.exports = {
                   context: ''
                   },
             },
-            {
-              test: /fancybox[\/\\]dist[\/\\]js[\/\\]jquery.fancybox.cjs.js/,
-              use: "imports-loader?jQuery=jquery,$=jquery,this=>window"
-            },
+           
             {
               test: /fancybox[\/\\]dist[\/\\]js[\/\\]jquery.fancybox.cjs.js/,
               use: "imports-loader?jQuery=jquery,$=jquery,this=>window"
