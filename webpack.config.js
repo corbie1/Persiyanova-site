@@ -63,20 +63,20 @@ module.exports = {
           to: './img/gallery'
         }],
       }),
-      // new ImageminWebpWebpackPlugin([
-      //   {
-      //     config: [{
-      //       test: /\.(jpe?g|png)/,
-      //       options: {
-      //         quality:  50
-      //       }
-      //     }],
-      //     overrideExtension: true,
-      //     detailedLogs: false,
-      //     silent: false,
-      //     strict: true,
-      //   },
-      // ]),
+      new ImageminWebpWebpackPlugin([
+        {
+          config: [{
+            test: /\.(jpe?g|png)/,
+            options: {
+              quality:  50
+            }
+          }],
+          overrideExtension: true,
+          detailedLogs: false,
+          silent: false,
+          strict: true,
+        },
+      ]),
       new MiniCssExtractPlugin(),
       new CleanWebpackPlugin()
     ],
