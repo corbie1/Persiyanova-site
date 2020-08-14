@@ -8,6 +8,8 @@
 <meta name="og:title" content="Свадебная фотография">
 <meta name="og:type" content="Свадебная фотография">
 <meta property="og:image" content="./assets/og.jpg"> -->
+<link rel="preload" href="img/width2.gif" as="image" />
+<link rel="preload" href="img/width1.gif" as="image" />
 </head>
 <body>
 	<div class="header">
@@ -55,9 +57,24 @@
 		<div class="b-slick__inner block__inner">
 			
 			<div class="b-slick__items">
-				<div class="b-slick__item"><img class="b-slick__img" src="img/fon1.jpg"></div>
-				<div class="b-slick__item"><img class="b-slick__img" src="img/fon2.jpg"></div>
-				<div class="b-slick__item"><img class="b-slick__img" src="img/fon3.jpg"></div>
+				<div class="b-slick__item">
+					<picture>
+							<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/fon1.webp">
+							<img loading="lazy" src="img/width1.gif" class="b-slick__img lazy" data-src="img/fon1.jpg">
+					</picture>
+				</div>
+				<div class="b-slick__item">
+						<picture>
+								<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/fon2.webp">
+								<img loading="lazy" src="img/width1.gif" class="b-slick__img lazy" data-src="img/fon2.jpg">
+						</picture>
+				</div>
+				<div class="b-slick__item">
+						<picture>
+								<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/fon3.webp">
+								<img loading="lazy" src="img/width1.gif" class="b-slick__img lazy" data-src="img/fon3.jpg">
+						</picture>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -68,22 +85,30 @@
 			<div class="b-portfolio__cards wow slideInUp" data-wow-delay="300">
 				<div class="b-portfolio__card">
 					<a href="gallery(2).html">
-					<img class="b-portfolio__image" src="img/IMG_1589.png">
+						<picture>
+							<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/IMG_1589.webp">
+							<img loading="lazy" src="img/width1.gif" class="lazy b-portfolio__image" data-src="img/IMG_1589.png">
+						</picture>
 					<div class="card__line"></div>
 					<div class="card__text">Свадебные фото</div>
 					</a>
 				</div>
 				<div class="b-portfolio__card ">
-			<a href="gallery(2).html">
-
-					<img class="b-portfolio__image" src="img/IMG_1454.png">
+					<a href="gallery(2).html">
+					<picture>
+							<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/IMG_1454.webp">
+							<img loading="lazy" src="img/width1.gif" class="lazy b-portfolio__image" data-src="img/IMG_1454.png">
+					</picture>
 					<div class="card__line"></div>
 					<div class="card__text">Love Story</div>
 				</a>
 				</div>
 				<div class="b-portfolio__card">
 					<a href="gallery(2).html">
-					<img class="b-portfolio__image" src="img/IMG_3110.png">
+					<picture>
+							<source type="image/webp" class="lazy" src="img/width1.gif" loading="lazy" data-srcset="img/IMG_3110.webp">
+							<img loading="lazy" src="img/width1.gif" class="lazy b-portfolio__image" data-src="img/IMG_3110.png">
+					</picture>
 					<div class="card__line"></div>
 					<div class="card__text">Индивидуальные фото</div>
 					</a>

@@ -66,9 +66,9 @@ module.exports = {
       new ImageminWebpWebpackPlugin([
         {
           config: [{
-            test: /\.(jpe?g|png)/,
+            test: /\.(jpeg|png|jpg)/,
             options: {
-              quality:  50
+              quality:  75
             }
           }],
           overrideExtension: true,
@@ -89,7 +89,7 @@ module.exports = {
             },
            
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpeg|jpg|png|gif|svg)$/i,
                 loader: 'file-loader',
                 options: {
                   name: '[path][name].[ext]',
